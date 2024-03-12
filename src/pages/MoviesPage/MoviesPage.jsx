@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { getMoviesSearch } from "../../movies-api";
 import MoviesList from "../../components/MovieList/MovieList";
 import MoviesFilter from "../../components/MoviesFilter/MoviesFilter";
-
+import css from './MoviesPage.module.css'
 
 const MoviesPage = () => {
     const [movies, setMovies] = useState([]);
@@ -35,7 +35,7 @@ const MoviesPage = () => {
       }, [moviesFilter, movies]);
 
     return (
-        <div>
+        <div className={css.container}>
       <h1>Movies</h1>
       <MoviesFilter />
       {isLoading && <b>Loading payments...</b>}

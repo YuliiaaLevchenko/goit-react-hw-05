@@ -58,9 +58,6 @@ const MovieDetailsPage = () => {
             <h2 className={css.text}>
               {movie.title} ({movie.release_date.slice(0, 4)})
             </h2>
-            <p className={css.text}>
-              User score: {Math.round(movie.vote_average * 10)}%
-            </p>
             <h3 className={css.text}>Overview</h3>
             <p className={css.text}>{movie.overview}</p>
             <h3 className={css.text}>Genres</h3>

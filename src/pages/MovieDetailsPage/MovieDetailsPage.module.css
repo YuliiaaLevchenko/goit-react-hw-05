@@ -1,0 +1,15 @@
+.container {
+    margin-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .img {
+    margin-bottom: 10px;
+  }
+  
+  .text {
+    margin-bottom: 20px;
+  }
+  .isActive {
+    text-decoration: underline;
+  }
