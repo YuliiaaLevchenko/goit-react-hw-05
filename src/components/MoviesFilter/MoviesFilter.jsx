@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
-import toast, { Toaster } from 'react-hot-toast';
+import { toast, Toaster } from 'react-hot-toast';
 import css from './MoviesFilter.module.css';
 
 const MoviesFilter = () => {
@@ -18,11 +18,11 @@ const MoviesFilter = () => {
           return;
         }
         if (query.length < 1) {
-          toast.error('To shot!');
+          toast.error('Too shot!');
           return;
         }
         if (query.length > 50) {
-          toast.error('To long!');
+          toast.error('Too long!');
           return;
         }
     
