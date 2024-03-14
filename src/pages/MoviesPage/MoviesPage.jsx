@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useSearchParams,  } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { getMoviesSearch } from "../../movies-api";
 import MoviesList from "../../components/MovieList/MovieList";
 import MoviesFilter from "../../components/MoviesFilter/MoviesFilter";
@@ -11,7 +11,7 @@ const MoviesPage = () => {
   const [error, setError] = useState(false);
   const [popularMovies, setPopularMovies] = useState([]);
 
-  const history = useState();
+  
   const searchParams = useSearchParams();
   const moviesFilter = searchParams.get("query") ?? "";
 
@@ -34,7 +34,7 @@ const MoviesPage = () => {
     async function getPopularData() {
       try {
         setIsLoading(true);
-        const popularData = await getMoviesSearch();
+        const popularData = await getMoviesSearch("");
         setPopularMovies(popularData);
       } catch (error) {
         setError(true);
@@ -53,7 +53,7 @@ const MoviesPage = () => {
 
   const handleFilterChange = (newQuery) => {
     searchParams.set("query", newQuery);
-    history.push({ search: searchParams.toString() });
+    searchParams.replace(searchParams.toString()); 
   };
 
   return (
