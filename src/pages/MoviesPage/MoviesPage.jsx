@@ -9,10 +9,9 @@ const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [popularMovies, setPopularMovies] = useState([]);
-
   
-  const searchParams = useSearchParams();
+  
+  const [searchParams] = useSearchParams();
   const moviesFilter = searchParams.get("query") ?? "";
 
   useEffect(() => {
@@ -30,20 +29,6 @@ const MoviesPage = () => {
     getData();
   }, [moviesFilter]);
 
-  useEffect(() => {
-    async function getPopularData() {
-      try {
-        setIsLoading(true);
-        const popularData = await getMoviesSearch("");
-        setPopularMovies(popularData);
-      } catch (error) {
-        setError(true);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    getPopularData();
-  }, []);
 
   const filteredMovies = useMemo(() => {
     return movies.filter((movie) =>
@@ -63,8 +48,7 @@ const MoviesPage = () => {
       {isLoading && <b>Loading movies...</b>}
       {error && <b>HTTP error!</b>}
       <MoviesList movies={filteredMovies} />
-      <h2>Popular Movies</h2>
-      <MoviesList movies={popularMovies} />
+      
     </div>
   );
 };
