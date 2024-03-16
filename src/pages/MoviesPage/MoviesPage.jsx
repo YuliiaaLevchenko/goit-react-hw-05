@@ -11,7 +11,7 @@ const MoviesPage = () => {
   const [error, setError] = useState(false);
   
   
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const moviesFilter = searchParams.get("query") ?? "";
 
   useEffect(() => {
@@ -37,8 +37,8 @@ const MoviesPage = () => {
   }, [moviesFilter, movies]);
 
   const handleFilterChange = (newQuery) => {
-    searchParams.set("query", newQuery);
-    searchParams.replace(searchParams.toString()); 
+    setSearchParams({ query: newQuery });
+    
   };
 
   return (
