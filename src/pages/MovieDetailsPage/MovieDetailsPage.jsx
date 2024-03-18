@@ -71,7 +71,7 @@ const MovieDetailsPage = () => {
       <p className={css.text}>Additional information</p>
       <ul>
         <li>
-          <NavLink to="credits" className={linkIsActive}>
+          <NavLink to="cast" className={linkIsActive}>
             Cast
           </NavLink>
         </li>

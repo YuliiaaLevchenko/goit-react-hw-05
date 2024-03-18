@@ -18,14 +18,14 @@ function App() {
   return (
     <div>
       <Navigation />
-      
+
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
 
           <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
-            <Route path="cast" element={<MovieCast />} />
+            <Route path="" element={<MovieCast />} />
             <Route path="reviews" element={<MovieReviews />} />
           </Route>
 
