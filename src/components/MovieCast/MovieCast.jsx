@@ -28,11 +28,25 @@ const MovieCast = () => {
 
     return (
         <>
-         {<div className={css.container}>{isLoading && <Loader />}</div>}
+         <div className={css.container}>{isLoading && <Loader />}
       {error && <p>Something wrong...</p>}
-      {actors.length === 0 && !isLoading && !error && (
-        <p>No information available about the movie cast.</p>
+      {actors.length > 0 && (
+      <ul className={css.list}>
+          {actors.map(({ id, name, character }) => (
+            <li className={css.item} key={id}>
+              <div className="thumb">
+                <p className={css.text}>
+                  {name ? name : 'information is absent'}
+                </p>
+                <p className={css.text}>
+                  Character: {character ? character : 'information is absent'}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
       )}
+      </div>
         </>
     );
 }
